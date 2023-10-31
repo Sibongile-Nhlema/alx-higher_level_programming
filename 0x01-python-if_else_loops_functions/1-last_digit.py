@@ -10,7 +10,7 @@ else:
     last_digit = -last_digit
     number = -number
 
-print(f"The Last digit of {number} is {last_digit} ", end="")
+print(f"Last digit of {number} is {last_digit} ", end="")
 if (last_digit > 5):
     print("and is greater than 5")
 elif (last_digit == 0):
