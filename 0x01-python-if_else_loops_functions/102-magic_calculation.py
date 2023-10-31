@@ -3,9 +3,9 @@ import dis
 
 
 def magic_calculation(a, b, c):
-    if not (a < b):
+    if (a < b):
         return (c)
-    elif not (c > b):
+    elif (c > b):
         return (a + b)
     else:
         return (a * b - c)
