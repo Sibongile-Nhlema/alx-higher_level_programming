@@ -8,4 +8,4 @@ b = 5
 print("{} + {} = {}".format(a, b, a + b))
 print("{} - {} = {}".format(a, b, a - b))
 print("{} * {} = {}".format(a, b, a * b))
-print("{} / {} = {}".format(a, b, a / b))
+print("{} / {} = {}".format(a, b, int(a / b)))
