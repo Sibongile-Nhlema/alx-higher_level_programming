@@ -20,18 +20,22 @@ int is_palindrome(listint_t **head)
 		first = copy_head;
 		/*find last element*/
 		current = copy_head;
+		last = NULL;
 		while (current->next != NULL)
 		{
 			last = current;
 			current = current->next;
-			if (current->next == NULL)
-				last = current;
 		}
 		/*compare element*/
-		if ((first->n != last->n) && first != last)
+		if ((first->n == last->n) && first != last)
 		{
 			return (0);
 		}
+		/*skip middle for odd palindromes*/
+		if (first == current)
+			break;
+		if (last != NULL)
+			last->next = NULL;
 		copy_head = first->next;
 	}
 	return (1);
