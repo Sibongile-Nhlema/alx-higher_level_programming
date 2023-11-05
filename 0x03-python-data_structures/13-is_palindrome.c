@@ -24,9 +24,11 @@ int is_palindrome(listint_t **head)
 		{
 			last = current;
 			current = current->next;
+			if (current->next == NULL)
+				last = current;
 		}
 		/*compare element*/
-		if (first->n != last->n)
+		if ((first->n != last->n) && first != last)
 		{
 			return (0);
 		}
