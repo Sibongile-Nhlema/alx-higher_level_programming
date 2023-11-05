@@ -10,36 +10,44 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *first;
-	lisint_t *last;
-	int count = 0;
-
-	first = head;
-	last = NULL;
-
-	/*find last node*/
-	while (last-> NULL)
-		last = last->next;
-
-	while (first != Null)
+	listint_t *copy_head;
+	listint_t *first, *last, *current;
+	/*make a copy of the head*/
+	copy_head = *head;
+	/*main loop check if first and are equal*/
+	while (copy_head != NULL)
 	{
+		/*find first elemnet*/
+		first = copy_head;
+		/*find last element*/
+		last = copy_head;
+		current = copy_head;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		last = current;
+		/*compare element*/
 		if (first->n == last->n)
 		{
-			count++;
-			printf("match!\n");
+		/*update first element to second element*/
+			first = first->next;
+		/*update last element to second last element*/
+			current = copy_head;
+			while (current->next->next != NULL)
+			{
+				current = current->next;
+			}
+			last = current;
+			last->next = NULL;
+			copy_head = copy_head->next;
+		/*making a secons last node point to NULL*/
 		}
 		else
 		{
-			printf("not a match!\n");
-			break
+			return (0);
 		}
-		first = first->next;
-		last = 
+	/*if not break from loop and return 0*/
 	}
-
-
-	/*loop */
-	/*check if first node value/ addree is the same*/
-	/*enter loop and check next node*/
-	/* if not, not palindrome*/
+	return (1);
 }
