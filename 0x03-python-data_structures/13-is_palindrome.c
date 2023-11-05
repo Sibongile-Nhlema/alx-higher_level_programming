@@ -32,7 +32,6 @@ int is_palindrome(listint_t **head)
 		{
 			return (0);
 		}
-		last->next = NULL;
 		copy_head = first->next;
 	}
 	return (1);
