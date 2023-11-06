@@ -15,7 +15,7 @@ int is_palindrome(listint_t **head)
 	listint_t *fast_node = *head, *slow_node = *head;
 	listint_t *second_half, *p1, *p2;
 
-	if (head == NULL) /*empty list*/
+	if (*head == NULL) /*empty list*/
 		return (1);
 
 	/*slow_node will be at middle when fast_nodeis at end of list*/
