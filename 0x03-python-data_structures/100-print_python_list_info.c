@@ -2,7 +2,7 @@
 
 /**
  * print_python_list_info - prints basic info about python
- * @p: pointer to PYObject
+ * @p: pointer to PyObject
  */
 
 void print_python_list_info(PyObject *p)
