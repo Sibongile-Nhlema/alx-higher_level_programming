@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     num = 0
-    prev_numeral = 0
     roman_numerals_dict = {
         "I": 1,
         "V": 5,
@@ -11,16 +10,17 @@ def roman_to_int(roman_string):
         "D": 500,
         "M": 1000
     }
+    number_value = [roman_numerals_dict[x] for x in roman_string] + [0]
+
+    roman_string = roman_string.upper()
 
     if type(roman_string) != str or roman_string is None:
         return None
 
-    for i in range(len(roman_string)):
-        if roman_string[i] in roman_numerals_dict:
-            current_numeral = roman_numerals_dict[roman_string[i]]
-            if prev_numeral < current_numeral:
-                num -= 2 * prev_numeral
-            num += current_numeral
-            prev_numeral = current_numeral
+    for i in range(len(number_value) - 1):
+        if number_value[i] >= number_value[i + 1]:
+            num += number_value[i]
+        else:
+            num -= number_value[i]
 
     return num
