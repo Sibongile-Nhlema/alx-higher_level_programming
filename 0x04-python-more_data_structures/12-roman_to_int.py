@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
+    if type(roman_string) != str or roman_string is None:
+        return None
+
     num = 0
     roman_numerals_dict = {
         "I": 1,
@@ -11,9 +14,6 @@ def roman_to_int(roman_string):
         "M": 1000
     }
     number_value = [roman_numerals_dict[x] for x in roman_string] + [0]
-
-    if type(roman_string) != str or roman_string is None:
-        return None
 
     for i in range(len(number_value) - 1):
         if number_value[i] >= number_value[i + 1]:
