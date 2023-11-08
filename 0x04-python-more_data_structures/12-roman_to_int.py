@@ -12,8 +12,6 @@ def roman_to_int(roman_string):
     }
     number_value = [roman_numerals_dict[x] for x in roman_string] + [0]
 
-    roman_string = roman_string.upper()
-
     if type(roman_string) != str or roman_string is None:
         return None
 
