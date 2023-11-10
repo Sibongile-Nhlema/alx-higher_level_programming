@@ -18,8 +18,8 @@ void print_python_list(PyObject *p)
 
 	for (j = 0; j < size; j++)
 	{
-		item = PyList_GetItem(p, j);
-		printf("Element %ld: %s\n", j, Py_TYPE(item)->tp_name);
+		item = *(p + j);
+		printf("Element %ld: %s\n", j, PyObject_Type(item)->tp_name);
 	}
 }
 
