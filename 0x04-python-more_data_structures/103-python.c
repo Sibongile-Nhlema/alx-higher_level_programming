@@ -5,7 +5,7 @@
  * @p: pointer to PyObject
  */
 
-void print_python_list(PyObject *p);
+void print_python_list(PyObject *p)
 {
 	PyObject *item;
 	Py_ssize_t size, j;
@@ -18,8 +18,8 @@ void print_python_list(PyObject *p);
 
 	for (j = 0; j < size; j++)
 	{
-		 item = PyList_GetItem(p, j);
-		 printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
+		item = PyList_GetItem(p, j);
+		printf("Element %ld: %s\n", j, Py_TYPE(item)->tp_name);
 	}
 }
 
@@ -28,7 +28,7 @@ void print_python_list(PyObject *p);
  * @p: pointer to PyObject
  */
 
-void print_python_bytes(PyObject *p);
+void print_python_bytes(PyObject *p)
 {
 	char *string;
 	Py_ssize_t size, j;
