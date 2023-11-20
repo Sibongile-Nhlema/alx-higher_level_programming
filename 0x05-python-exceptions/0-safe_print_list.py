@@ -11,6 +11,6 @@ def safe_print_list(my_list=[], x=0):
                 print(my_list[i], end="")
                 num_of_elements = i + 1
         print()
-    except TypeError:
+    except IndexError:
         pass
     return num_of_elements
