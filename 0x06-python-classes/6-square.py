@@ -49,10 +49,10 @@ class Square:
         Args:
             value: new value as a tuple with 2 elements
         '''
-        position1 = self.__value[0]
-        position2 = self.__value[1]
+        ptn1 = self.__value[0]
+        ptn2 = self.__value[1]
         lg = len(value)
-        if isinstance(value, tuple) and position1 > 0 and position2 > 0 and lg == 2:
+        if isinstance(value, tuple) and ptn1 > 0 and ptn2 > 0 and lg == 2:
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
