@@ -51,7 +51,7 @@ class Square:
         '''
         position1 = self.__position[0]
         position2 = self.__position[1]
-        if isinstance(value, tuple) and position1 > 0 or position2 > 0:
+        if isinstance(value, tuple) and position1 > 0 and position2 > 0:
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
