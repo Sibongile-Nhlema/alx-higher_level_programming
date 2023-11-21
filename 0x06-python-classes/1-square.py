@@ -9,4 +9,4 @@ class Square:
         Args:
             size: width and height of the Square.
         '''
-        self.___size = size
+        self.__size = size
