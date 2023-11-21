@@ -6,7 +6,7 @@ class Square:
     ''' Defines a new square '''
     def __init__(self, size):
         ''' Constructor with private size.
-        Arguments:
+        Args:
             size: width and height of the Square
         '''
         self.___size = size
