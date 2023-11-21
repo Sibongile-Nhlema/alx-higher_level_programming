@@ -44,10 +44,9 @@ class Square:
         ptn1 = self.__value[0]
         ptn2 = self.__value[1]
         lg = len(value)
-        if isinstance(value, tuple) and ptn1 >= 0 and ptn2 >= 0 and lg == 2:
-            self.__position = value
-        else:
+        if (not isinstance(value, tuple)) and ptn1 <= 0 and ptn2 <= 0 and lg != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     # moved area to after setter so that it uses updated values
 
