@@ -49,9 +49,12 @@ class Square:
         Args:
             value: new value as a tuple with 2 elements
         '''
-        if not isinstance(value, tuple):
+        position1 = self.__position[0]
+        position2 = self.__position[1]
+        if isinstance(value, tuple) and position1 > 0 or position2 > 0:
+            self.__position = value
+        else:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
 
     # moved area to after setter so that it uses updated values
 
