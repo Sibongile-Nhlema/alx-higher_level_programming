@@ -3,11 +3,15 @@ import math
 ''' Import math module '''
 
 
-class MagicClass :
+class MagicClass:
     ''' Finds radius and circumference of a circle'''
     def __init__(self, radius=0):
+        ''' Initialises data.
+            Args:
+                radius: radius of circle
+        '''
         self.__radius = 0
-        if type(radius) is not int or type(radius) is not float :
+        if type(radius) is not int or type(radius) is not float:
             raise TypeError("radius must be a number")
         self.__radius = radius
 
