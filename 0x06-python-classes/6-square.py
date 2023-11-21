@@ -49,8 +49,8 @@ class Square:
         Args:
             value: new value as a tuple with 2 elements
         '''
-        position1 = self.__position[0]
-        position2 = self.__position[1]
+        position1 = self.__value[0]
+        position2 = self.__value[1]
         if isinstance(value, tuple) and position1 > 0 and position2 > 0 and len(value) == 2:
             self.__position = value
         else:
