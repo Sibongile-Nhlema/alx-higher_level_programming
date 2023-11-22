@@ -20,3 +20,18 @@ my_square = Square(3, (1, -3))
 my_square_3.my_print()
 
 print("--")
+
+my_square = Square(3, (1, ))
+my_square_3.my_print()
+
+print("--")
+
+mysquare = Square(3, (0, 1))
+my_square_3.my_print()
+
+print("--")
+
+mysquare = Square(5, (3, 2))
+my_square_3.my_print()
+
+print("--")

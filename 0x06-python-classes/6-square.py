@@ -44,17 +44,13 @@ class Square:
         Args:
             value: new value as a tuple with 2 elements
         '''
-        ptn1 = self.__value[0]
-        ptn2 = self.__value[1]
         lg = len(value)
-        try:
-            if ptn1 > 0 and ptn2 > 0:
-                self.__position = value
-            else:
-                raise
-            TypeError("position must be a tuple of 2 positive integers")
-        except (SyntaxError, TypeError, ValueError):
+        if (not isinstance(value, tuple) or
+                lg != 2 or
+                not all(isinstance(nm, int) for nm in value)
+                or not all(nm >= 0 for nm in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     # moved area to after setter so that it uses updated values
 
@@ -69,13 +65,12 @@ class Square:
         ''' Prints in Stdout the square with the character # '''
         if self.__size == 0:
             print()
-        else:
-            for n in range(0, self.__position[1]):
-                print(" ")
-            for i in range(self.__size):
-                for k in range(0, self.__position[0]):
-                    print(" ", end="")
-                for j in range(1, self.__size):
-                    print("#", end="")
+        for n in range(0, self.__position[1]):
+            print(" ")
+        for i in range(0, self.__size):
+            for k in range(0, self.__position[0]):
+                print(" ", end="")
+            for j in range(1, self.__size):
                 print("#", end="")
-                print()
+            print("#", end="")
+            print("")
