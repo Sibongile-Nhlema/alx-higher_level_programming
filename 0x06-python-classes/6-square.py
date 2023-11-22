@@ -47,14 +47,10 @@ class Square:
         ptn1 = self.__value[0]
         ptn2 = self.__value[1]
         lg = len(value)
-        if not isinstance(value, tuple) or ptn1 > 0 or ptn2 > 0 or lg == 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if not isinstance(ptn1, int) and not isinstance(ptn2, int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if isinstance(value, tuple) or ptn1 > 0 or ptn2 > 0 or lg == 2:
+        try:
             self.__position = value
-        else:
-            raise Exception("position must be a tuple of 2 positive integers")
+        except (SyntaxError, TypeError, ValueError):
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     # moved area to after setter so that it uses updated values
 
