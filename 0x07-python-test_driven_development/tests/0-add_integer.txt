@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+''' This is the test module for add_integer() '''
+
+import unittest
+''' Get all methods for Unittests '''
+add_integer = __import__('0-add_integer').add_integer
+''' Gets add_integer for use '''
+
+
+class Test_add_integer(unittest.TestCase):
+        ''' Tests add_integer for edge cases '''
+        def test_ifInteger(self):
+                totalSum = add_integer(11, 9)
+                self.assertEqual(totalSum, 20)
+
+if __name__ == "__main__":
+    unittest.main()
