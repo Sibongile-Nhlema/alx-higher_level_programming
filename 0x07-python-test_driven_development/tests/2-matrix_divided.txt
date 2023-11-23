@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+''' This is the test module for matrix_divided() '''
+
+==============
+matrix_divided
+==============
+
+This function divides all elements of a matrix.
+We assume that it is a 2D matrix.
+All elements will be divided by div, rounded to 2 decimal places
+
+
+``matrix_divided()`` returns a new matrix with the new values.
+
+::
