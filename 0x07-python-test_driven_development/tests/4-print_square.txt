@@ -1,0 +1,49 @@
+#!/usr/bin/python3
+''' This is the test module for print_square() '''
+
+==============
+print_square
+==============
+
+This function prints a square with the character #
+prints a square based on input value
+
+::
+
+    >>> print_square = __import__('4-print_square').print_square
+
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+    >>> print_square(0)
+
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+    >>> print_square(5.97)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+    >>> print_square("four")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+    >>> print_square([])
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
