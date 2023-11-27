@@ -52,4 +52,4 @@ class Rectangle:
         if self.__width != 0 or self.__height != 0:
             perimeter = (self.__height * 2) + (self.__width * 2)
             return perimeter
-        return perimeter
+        return (0)
