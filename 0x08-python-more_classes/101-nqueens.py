@@ -12,38 +12,41 @@
 import sys
 ''' Module for sys functions '''
 
+
 class Nqueens:
     ''' Finds viable positions for a queen so that none attack each other '''
     def __init__(self):
         ''' Initializes an instance for class '''
-        self.columnSet = set()
-        self.positiveDiagonalSet = set()
-        self.negativeDiagonalSet = set()
+        self.cSet = set()
+        self.posDSet = set()
+        self.negDSet = set()
         self.answer = []
         self.chessboard = []
 
     def backtrack(self, r):
-        ''' Find a good position and return it's co-ordinates on the chessboard.
+        ''' Find a good position and return co-ordinates on the chessboard.
             r: row in question
         '''
         if r == self.N:
             self.answer.append(self.chessboard[:])
-            solutions.append(self.chessboard[:])  # Append the current solution to the solutions list
+            solutions.append(self.chessboard[:])
             return
 
         for c in range(self.N):
-            if c not in self.columnSet and (r + c) not in self.positiveDiagonalSet and (r - c) not in self.negativeDiagonalSet:
-                self.columnSet.add(c)
-                self.positiveDiagonalSet.add(r + c)
-                self.negativeDiagonalSet.add(r - c)
-                self.chessboard.append([r, c])
+            if c not in self.cSet and (r + c) not in self.posDSet:
+                if (r - c) not in self.negDSet:
+                    self.cSet.add(c)
+                    self.posDSet.add(r + c)
+                    self.negDSet.add(r - c)
+                    self.chessboard.append([r, c])
 
-                self.backtrack(r + 1)
+                    self.backtrack(r + 1)
 
-                self.columnSet.remove(c)
-                self.positiveDiagonalSet.remove(r + c)
-                self.negativeDiagonalSet.remove(r - c)
-                self.chessboard.pop()
+                    self.cSet.remove(c)
+                    self.posDSet.remove(r + c)
+                    self.negDSet.remove(r - c)
+                    self.chessboard.pop()
+
 
 nqueens = Nqueens()
 solutions = []  # Initialize an empty list to store the solutions
