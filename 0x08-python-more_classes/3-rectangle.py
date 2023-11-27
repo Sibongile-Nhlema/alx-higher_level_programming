@@ -54,13 +54,14 @@ class Rectangle:
 
     def __str__(self):
         ''' Returns new string object from the given object. '''
+        string = ""
         if self.__width == 0 or self.__height == 0:
-            return ("")
+            return string)
 
         rectangle = []
         for row in range(self.__height):
             for column in range(self.__width):
-                rectangle.append("#")
-            if column != self.height - 1:
+                rectangle.append(#")
+            if column != self.__height - 1:
                 rectangle.append("\n")
-        return ("".join(rectangle))
+        return (string.join(rectangle))
