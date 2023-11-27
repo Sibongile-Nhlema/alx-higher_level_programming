@@ -53,10 +53,11 @@ class Rectangle:
         return ((self.__height * 2) + (self.__width * 2))
 
     def __str__(self):
-        ''' Returns new string object from the given object. '''
-        string = ""
+        ''' Returns new string object from the given object. 
+            Creates reactangles using #
+        '''
         if self.__width == 0 or self.__height == 0:
-            return (string)
+            return ("")
 
         rectangle = []
         for row in range(self.__height):
@@ -64,4 +65,4 @@ class Rectangle:
                 rectangle.append("#")
             if column != self.__height - 1:
                 rectangle.append("\n")
-        return (string.join(rectangle))
+        return ("".join(rectangle))
