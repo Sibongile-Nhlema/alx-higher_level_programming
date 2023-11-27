@@ -71,4 +71,4 @@ class Rectangle:
         ''' Returns canonical string representation of the object.
             Creates rectangles using #
         '''
-        return ("Rectangle ({}, {})".format(self.__width, self.__height))
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
