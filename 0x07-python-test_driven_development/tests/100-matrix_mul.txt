@@ -1,0 +1,67 @@
+#!/usr/bin/python3
+''' This is the test module for matrix_mul() '''
+
+==============
+matrix_mul
+==============
+
+This function that multiplies 2 matrices.
+
+``matrix_mul()`` returns a new matrix.
+
+::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+    [[58, 64], [139, 154]]
+
+    >>> matrix_mul("My name is Bond", "James Bond")
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+    >>> matrix_mul([[6, 3], [7, 43]], 8)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+    >>> matrix_mul(8, [[6, 3], [7, 43]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list of lists
+
+    >>> matrix_mul([[8, 2], [2, 5]], [1, 5])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list of lists
+
+    >>> matrix_mul([], [[7, 8], [9, 10], [11, 12]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+
+    >>> matrix_mul([[1, "hello world"]], [[31, 30], 32, 22]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+    >>> matrix_mul([[31, 30], 32, 22]], [[1, "hello world"]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b should contain only integers or floats
+
+    >>> matrix_mul([[1, 2, 3, 6], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 10, 12]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
