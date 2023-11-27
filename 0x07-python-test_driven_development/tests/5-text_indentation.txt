@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+''' This is the test module for text_indentation(text) '''
+
+================
+text_indentation
+================
+
+The function prints a text with 2 new lines after each of these characters: ., ? and :
+If tests is not a string, it raises a TypeError
+
+::
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text_indentation("Zen of Python. Beautiful is better than ugly.")
+    Zen of Python.
+    <BLANKLINE>
+    Beautiful is better than ugly.
+    <BLANKLINE>
+
+    >>> text_indentation("")
+
+    >>> text_indentation("Hello.World?It is Tim:")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    It is Tim:
+    <BLANKLINE>
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    >>> text_indentation([123])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    >>> text_indentation(12.3)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
