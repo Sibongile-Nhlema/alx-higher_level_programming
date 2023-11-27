@@ -54,9 +54,8 @@ class Rectangle:
 
     def __str__(self):
         ''' Returns new string object from the given object. '''
-        string = ""
         if self.__width == 0 or self.__height == 0:
-            return (string)
+            return ("")
 
         rectangle = []
         for row in range(self.__height):
@@ -64,4 +63,4 @@ class Rectangle:
                 rectangle.append("#")
             if column != self.height - 1:
                 rectangle.append("\n")
-        return (string.join(rectangle))
+        return ("".join(rectangle))
