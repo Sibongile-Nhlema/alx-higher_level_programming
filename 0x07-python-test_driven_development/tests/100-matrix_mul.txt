@@ -26,7 +26,7 @@ This function that multiplies 2 matrices.
         ...
     TypeError: m_b must be a list
 
-    >>> matrix_mul(8, [[6, 3], [7, 43]])
+    >>> matrix_mul([8, 5], [[6, 3], [7, 43]])
     Traceback (most recent call last):
         ...
     TypeError: m_a must be a list of lists
@@ -46,12 +46,12 @@ This function that multiplies 2 matrices.
         ...
     ValueError: m_b can't be empty
 
-    >>> matrix_mul([[1, "hello world"]], [[31, 30], 32, 22]])
+    >>> matrix_mul([[1, "hello world"]], [[31, 30], [32, 22]])
     Traceback (most recent call last):
         ...
     TypeError: m_a should contain only integers or floats
 
-    >>> matrix_mul([[31, 30], 32, 22]], [[1, "hello world"]])
+    >>> matrix_mul([[31, 30], [32, 22]], [[1, "hello world"]])
     Traceback (most recent call last):
         ...
     TypeError: m_b should contain only integers or floats
