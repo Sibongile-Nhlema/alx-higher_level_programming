@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+''' This is the test module for the Rectangle class (task 1)'''
+
+The function does not do anything so no tests are needed.
