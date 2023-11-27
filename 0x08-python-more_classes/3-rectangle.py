@@ -56,12 +56,12 @@ class Rectangle:
         ''' Returns new string object from the given object. '''
         string = ""
         if self.__width == 0 or self.__height == 0:
-            return string)
+            return (string)
 
         rectangle = []
         for row in range(self.__height):
             for column in range(self.__width):
-                rectangle.append(#")
+                rectangle.append("#")
             if column != self.__height - 1:
                 rectangle.append("\n")
         return (string.join(rectangle))
