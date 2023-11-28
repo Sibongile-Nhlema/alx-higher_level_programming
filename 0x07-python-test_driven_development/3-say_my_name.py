@@ -3,6 +3,8 @@
     Handles cases of type() == string
     Handles execption if input != string
     '''
+
+
 def say_my_name(first_name, last_name=""):
     ''' Args:
             first_name: inputted first name

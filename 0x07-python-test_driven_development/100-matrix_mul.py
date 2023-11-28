@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Defines a function that multiplies 2 matrices'''
 
+
 def matrix_mul(m_a, m_b):
     ''' Multiples two matrices
         Args:
@@ -44,4 +45,3 @@ def matrix_mul(m_a, m_b):
                 answer[i][j] += m_a[i][k] * m_b[k][j]
 
     return answer
-

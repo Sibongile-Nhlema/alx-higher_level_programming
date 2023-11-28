@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-''' print_square() prints a square 
+''' print_square() prints a square
     return an error if the input is not an integer or a float
     '''
+
 
 def print_square(size):
     ''' Args:
