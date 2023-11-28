@@ -111,8 +111,4 @@ class Rectangle:
                 size (int): new dimensions
             Return: new Rectangle instance with width == height == size
         '''
-        if size < 0:
-            raise ValueError("width must be >= 0")
-        if not isinstance(size, int):
-            raise TypeError("width must be an integer")
         return cls(size, size)
