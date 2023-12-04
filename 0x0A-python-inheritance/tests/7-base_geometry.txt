@@ -40,14 +40,14 @@ Trying to pass a boolean value
     >>> bg.integer_validator("bool_value", True)
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
+    TypeError: bool_value must be an integer
 
 Trying to pass a zero
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("zero", 0)
     Traceback (most recent call last):
         ...
-    ValueError: name must be greater than 0
+    ValueError: zero must be greater than 0
 
 Passing one argument to integer_validator
     >>> bg = BaseGeometry()
