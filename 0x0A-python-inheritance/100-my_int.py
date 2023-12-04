@@ -11,3 +11,10 @@ class MyInt(int):
         ''' override the bool subclass of int'''
         return False
 
+    def __eq__(self, value):
+        ''' overrisde == with !='''
+        return self.real != value
+
+    def __ne__(self, value):
+        ''' override != with == '''
+        return self.real == value
