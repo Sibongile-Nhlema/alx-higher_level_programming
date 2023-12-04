@@ -3,11 +3,11 @@
 
 
 class MyList(list):
-    ''' Defines a list object 
+    ''' Defines a list object
         Args:
             list: inherited from list
     '''
-    
+
     def print_sorted(self):
         ''' Prints the list in ascending order
             all args are of type int
