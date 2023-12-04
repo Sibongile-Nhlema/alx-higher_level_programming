@@ -8,4 +8,6 @@ class MyInt(int):
         int(int): class
     '''
     def __bool__(int):
+        ''' override the bool subclass of int'''
         return False
+
