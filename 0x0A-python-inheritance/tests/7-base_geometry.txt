@@ -62,3 +62,52 @@ Integer_validator with no arguments
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Passing None to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+Passing three arguments to integer_validator
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 9, 6)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Passing tuple to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", (9,))
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+Passing dict to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", {17, 32})
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+Passing list to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", [3, 83, 5])
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+Passing two arguments to area method
+    >>> bg = BaseGeometry()
+    >>> bg.area(4, 76)
+    Traceback (most recent call last):
+        ...
+    TypeError: area() takes 1 positional argument but 3 were given
+
+Passing one argument to area method
+    >>> bg = BaseGeometry()
+    >>> bg.area(8)
+    Traceback (most recent call last):
+        ...
+    TypeError: area() takes 1 positional argument but 2 were given
