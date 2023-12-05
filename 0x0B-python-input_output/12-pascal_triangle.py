@@ -19,8 +19,3 @@ def pascal_triangle(n):
                 row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
         triangle.append(row)
     return triangle
-    #return triangle
-    #check if negative
-    #n = number of rows
-    #print 1, then print sum of index 0 and 1
-    #print it in the middle
