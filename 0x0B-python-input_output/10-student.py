@@ -21,7 +21,7 @@ class Student:
                 attrs: list of strings, only attribute
                 names contained in this list must be retrieved
         '''
-        if (type(attrs) == list and all(type(items) == str for items in attrs)):
+        if (type(attrs) == list and all(type(i) == str for i in attrs)):
             return {m: getattr(self, m) for m in attrs if hasattr(self, m)}
 
         return self.__dict__
