@@ -87,7 +87,7 @@ class Rectangle(Base):
         for k in range(self.__y):
             print()
         for i in range(self.__height):
-            for l in range(self.__x):
+            for m in range(self.__x):
                 print(" ", end="")
             for j in range(1, self.__width):
                 print("#", end="")
@@ -97,3 +97,27 @@ class Rectangle(Base):
         ''' prints a string representaion of rectangle instance '''
         return ("[{}] ({}) {}/{} - {}/{}".format(Rectangle.__name__,
                 self.id, self.__x, self.__y, self.__width, self.__height))
+
+    def update(self, *args):
+        ''' assigns an argument to each variable
+            Args:
+                *args(int): variable number of arguments
+        '''
+        if args and len(args) != 0:
+            count = 0
+            for arg in args:
+                if count == 0:
+                    if arg is None:
+                        self.__init__(self.__width,
+                                      self.__height, self.__x, self__.y)
+                    else:
+                        self.id = arg
+                elif count == 1:
+                    self.__width = arg
+                elif count == 2:
+                    self.__height = arg
+                elif count == 3:
+                    self.__x = arg
+                elif count == 4:
+                    self.__y = arg
+                count += 1
