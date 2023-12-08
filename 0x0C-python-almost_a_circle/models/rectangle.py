@@ -24,8 +24,8 @@ class Rectangle(Base):
 
     @property
     def width(self):
-       ''' gets the width attr '''
-       return self.__width
+        ''' gets the width attr '''
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -38,8 +38,8 @@ class Rectangle(Base):
 
     @property
     def height(self):
-       ''' gets the height attr '''
-       return self.__height
+        ''' gets the height attr '''
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -57,12 +57,12 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-       ''' sets the x attr '''
-       if type(value) != int:
-           raise TypeError("x must be an integer")
-       if value < 0:
-           raise ValueError("x must be >= 0")
-       self.__x = value
+        ''' sets the x attr '''
+        if type(value) != int:
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value
 
     @property
     def y(self):
@@ -84,11 +84,16 @@ class Rectangle(Base):
 
     def display(self):
         ''' prints in stdout the rectangle instance '''
+        for k in range(self.__y):
+            print()
         for i in range(self.__height):
+            for l in range(self.__x):
+                print(" ", end="")
             for j in range(1, self.__width):
                 print("#", end="")
             print("#")
 
     def __str__(self):
         ''' prints a string representaion of rectangle instance '''
-        return ("[{}] ({}) {}/{} - {}/{}".format(Rectangle.__name__, self.id, self.__x, self.__y, self.__width, self.__height))    
+        return ("[{}] ({}) {}/{} - {}/{}".format(Rectangle.__name__,
+                self.id, self.__x, self.__y, self.__width, self.__height))
