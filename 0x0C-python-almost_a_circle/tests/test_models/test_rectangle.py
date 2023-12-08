@@ -122,6 +122,223 @@ class TestRectangle_type_float(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(5, 4, 2, 7.5)
 
+class TestRectangle_type_bool(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_bool_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(False, 3)
+
+    def test_bool_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, False, 3)
+
+    def test_bool_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, False, 3)
+
+    def test_bool_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, False)
+
+class TestRectangle_type_str(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_str_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("hello", 3)
+
+    def test_str_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, "hello", 3)
+
+    def test_str_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, "hello", 3)
+
+    def test_str_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, "hello")
+
+class TestRectangle_type_None(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_None_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(None, 3)
+
+    def test_None_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, None, 3)
+
+    def test_None_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, None, 3)
+
+    def test_None_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, None)
+
+class TestRectangle_type_list(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_list_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(["apple", "banana", "cherry"], 3)
+
+    def test_list_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, ["apple", "banana", "cherry"], 3)
+
+    def test_list_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, ["apple", "banana", "cherry"], 3)
+
+    def test_list_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, ["apple", "banana", "cherry"])
+
+class TestRectangle_type_dict(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_dict_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({"name" : "John", "age" : 36}, 3)
+
+    def test_dict_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, {"name" : "John", "age" : 36}, 3)
+
+    def test_dict_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, {"name" : "John", "age" : 36}, 3)
+
+    def test_dict_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, {"name" : "John", "age" : 36})
+
+class TestRectangle_type_set(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_set_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({"apple", "banana", "cherry"}, 3)
+
+    def test_set_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, {"apple", "banana", "cherry"}, 3)
+
+    def test_set_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, {"apple", "banana", "cherry"}, 3)
+
+    def test_set_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, {"apple", "banana", "cherry"})
+
+class TestRectangle_type_frozenset(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_frozenset_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(frozenset({"apple", "banana", "cherry"}), 3)
+
+    def test_frozenset_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, frozenset({"apple", "banana", "cherry"}), 3)
+
+    def test_frozenset_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, frozenset({"apple", "banana", "cherry"}), 3)
+
+    def test_frozenset_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, frozenset({"apple", "banana", "cherry"}))
+
+class TestRectangle_type_tuple(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_tuple_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(("apple", "banana", "cherry"), 3)
+
+    def test_tuple_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, ("apple", "banana", "cherry"), 3)
+
+    def test_tuple_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, ("apple", "banana", "cherry"), 3)
+
+    def test_tuple_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, ("apple", "banana", "cherry"))
+
+class TestRectangle_type_range(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_range_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(range(8), 3)
+
+    def test_range_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, range(8), 3)
+
+    def test_range_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, range(8), 3)
+
+    def test_range_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, range(8))
+
+class TestRectangle_type_bytearray(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_bytearray_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(bytearray(5), 3)
+
+    def test_byterray_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, bytearray(5), 3)
+
+    def test_bytarray_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, bytearray(5), 3)
+
+    def test_bytearray_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, bytearray(5))
+
+class TestRectangle_type_complex(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_complex_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(1j, 3)
+
+    def test_complex_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, 1j, 3)
+
+    def test_complex_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, 1j, 3)
+
+    def test_complex_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, 1j)
+
+class TestRectangle_type_memoryview(unittest.TestCase):
+    ''' Defines wrong type tests for width, height, x and y '''
+    def test_memoryview_width(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(memoryview(bytes(5)), 3)
+
+    def test_memoryview_height(self):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(2, memoryview(bytes(5)), 3)
+
+    def test_memoryview_x(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 2, memoryview(bytes(5)), 3)
+
+    def test_memoryview_y(self):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(5, 4, 2, memoryview(bytes(5)))
+
+
 
 if __name__ == "__main__":
     unittest.main()
