@@ -98,10 +98,11 @@ class Rectangle(Base):
         return ("[{}] ({}) {}/{} - {}/{}".format(Rectangle.__name__,
                 self.id, self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         ''' assigns an argument to each variable
             Args:
                 *args(int): variable number of arguments
+                **kwargs(dict): key/ value arguments
         '''
         if args and len(args) != 0:
             count = 0
@@ -121,3 +122,19 @@ class Rectangle(Base):
                 elif count == 4:
                     self.__y = arg
                 count += 1
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.__width,
+                                      self.__height, self.__x, self__.y)
+                    else:
+                        self.id = v
+                elif k == "width":
+                    self.__width = v
+                elif k == "height":
+                    self.__height = v
+                elif k == "x":
+                    self.__x = v
+                elif k == "y":
+                    self.__y = v
