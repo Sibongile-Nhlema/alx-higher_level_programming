@@ -36,6 +36,16 @@ class ModelBaseTest(unittest.TestCase):
         b1 = Base(20)
         self.assertEqual(b1.id, 20)
 
+    def test_id_multiple(self):
+        with self.assertRaises(TypeError):
+            Base(6, 4)
+
+    def test_id_infinity(self):
+        self.assertEqual(float('inf'), Base(float('inf')).id)
+
+    def test_id_neg_infinity(self):
+        self.assertEqual(float('-inf'), Base(float('-inf')).id)
+
 # mix of no id and id given
     def test_nb_instances_after_id_given(self):
         b1 = Base()
@@ -65,6 +75,51 @@ class ModelBaseTest(unittest.TestCase):
 # cases that should raise errors, unlikely cases where id is not an int
     def test_id_Nan(self):
         self.assertNotEqual(float('nan'), Base(float('nan')).id)
+
+# test id is not type int
+    def test_id_float(self):
+        self.assertEqual(2.5, Base(2.5).id)
+
+    def test_id_str(self):
+        self.assertEqual('string', Base('string').id)
+
+    def test_id_bool(self):
+        self.assertEqual(True, Base(True).id)
+
+    def test_id_set(self):
+        self.assertEqual({"apple", "banana", "cherry"},
+                         Base({"apple", "banana", "cherry"}).id)
+
+    def test_id_frozenset(self):
+        self.assertEqual(frozenset({"apple", "banana", "cherry"}),
+                         Base(frozenset({"apple", "banana", "cherry"})).id)
+
+    def test_id_list(self):
+        self.assertEqual(["list", "list", "list"],
+                         Base(["list", "list", "list"]).id)
+
+    def test_id_tuple(self):
+        self.assertEqual(("list", "list", "list"),
+                         Base(("list", "list", "list")).id)
+
+    def test_id_dict(self):
+        self.assertEqual({"name": "John", "age": 36},
+                         Base({"name": "John", "age": 36}).id)
+
+    def test_id_range(self):
+        self.assertEqual(range(3), Base(range(3)).id)
+
+    def test_id_complex(self):
+        self.assertEqual(1j, Base(1j).id)
+
+    def test_id_bytes(self):
+        self.assertEqual(b"Hello", Base(b"Hello").id)
+
+    def test_id_bytearray(self):
+        self.assertEqual(bytearray(5), Base(bytearray(5)).id)
+
+    def test_id_memoryview(self):
+        self.assertEqual(memoryview(bytes(10)), Base(memoryview(bytes(10))).id)
 
 
 if __name__ == "__main__":
