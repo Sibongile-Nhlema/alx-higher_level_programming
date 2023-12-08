@@ -338,6 +338,30 @@ class TestRectangle_type_memoryview(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(5, 4, 2, memoryview(bytes(5)))
 
+class TestRectangle_area(unittest.TestCase):
+    ''' Defines tests for area of the rectangle '''
+    def test_normal_area(self):
+        rec1 = Rectangle(5, 5, 0, 0, 0)
+        self.assertEqual(25, rec1.area())
+
+    def test_large_area(self):
+        rec1 = Rectangle(999999999, 999999999, 0, 0, 0)
+        self.assertEqual((999999999 ** 2), rec1.area())
+
+    def test_small_area(self):
+        rec1 = Rectangle(2, 2, 0, 0, 0)
+        self.assertEqual(4, rec1.area())
+
+    def test_area_one_arg(self):
+        rec1 = Rectangle(5, 5, 0, 0, 0)
+        with self.assertRaises(TypeError):
+            rec1.area(1)
+
+    def test_area_changed_attrs(self):
+        rec1 = Rectangle(2, 2, 0, 0, 0)
+        rec1.width = 4
+        rec1.height = 5
+        self.assertEqual(20, rec1.area())
 
 
 if __name__ == "__main__":
