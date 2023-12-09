@@ -4,6 +4,8 @@
 Unittest classes:
     TestRectangle_init
 '''
+import io
+import sys
 import os
 import unittest
 from models.base import Base
@@ -362,6 +364,145 @@ class TestRectangle_area(unittest.TestCase):
         rec1.width = 4
         rec1.height = 5
         self.assertEqual(20, rec1.area())
+
+class TestRectangle_display_and_str(unittest.TestCase):
+    ''' Defines tests for displaying of the rectangle '''
+    @staticmethod
+    def capture_stdout(rec, method):
+        ''' Captures and prints to stdout
+            Args:
+                rec(Rectangle): Rectangle to print to stdout
+                method(str): method to run on rect
+            Return: printed rectangle
+        '''
+        capture = io.StringIO()
+        sys.stdout = capture
+        if method == "print":
+            print(rec)
+        else:
+            rec.display()
+        sys.stdout = sys.__stdout__
+        return capture
+
+# display tests
+    def test_display_width_height(self):
+        rec1 = Rectangle(5, 3, 0, 0, 0)
+        capture = TestRectangle_display_and_str.capture_stdout(rec1, "display")
+        self.assertEqual("#####\n#####\n#####\n", capture.getvalue())
+
+    def test_display_width_height_x(self):
+        rec1 = Rectangle(5, 3, 1, 0, 1)
+        capture = TestRectangle_display_and_str.capture_stdout(rec1, "display")
+        self.assertEqual(" #####\n #####\n #####\n", capture.getvalue())
+
+    def test_display_width_height_y(self):
+        rec1 = Rectangle(5, 3, 0, 1, 0)
+        capture = TestRectangle_display_and_str.capture_stdout(rec1, "display")
+        self.assertEqual("\n#####\n#####\n#####\n", capture.getvalue())
+
+    def test_display_width_height_x_y(self):
+        rec1 = Rectangle(5, 3, 2, 1, 0)
+        capture = TestRectangle_display_and_str.capture_stdout(rec1, "display")
+        self.assertEqual("\n  #####\n  #####\n  #####\n", capture.getvalue())
+
+    def test_display_one_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 0)
+        with self.assertRaises(TypeError):
+            rec1.display(1)
+# __str__ tests
+    def test_str_method_one_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 0)
+        with self.assertRaises(TypeError):
+            rec1.__str__(1)
+
+    def test_str_width_height(self):
+        rec1 = Rectangle(5, 3, 0, 0, 0)
+        capture = TestRectangle_display_and_str.capture_stdout(rec1, "print")
+        answer = "[Rectangle] ({}) 0/0 - 5/3\n".format(rec1.id)
+        self.assertEqual(answer, capture.getvalue())
+
+    def test_str_width_height_x(self):
+        rec1 = Rectangle(5, 3, 1, 0, 0)
+        answer = "[Rectangle] ({}) 1/0 - 5/3".format(rec1.id)
+        self.assertEqual(answer, rec1.__str__())
+
+    def test_str_width_height_x_y(self):
+        rec1 = Rectangle(5, 3, 1, 2, 0)
+        answer = "[Rectangle] ({}) 1/2 - 5/3".format(rec1.id)
+        self.assertEqual(answer, str(rec1))
+
+    def test_str_width_height_x_y_id(self):
+        rec1 = Rectangle(5, 3, 1, 2, 4)
+        self.assertEqual("[Rectangle] (4) 1/2 - 5/3", str(rec1))
+
+    def test_str_changed_attributes(self):
+        rec1 = Rectangle(5, 3, 1, 2, [4])
+        rec1.width = 10
+        rec1.height = 2
+        rec1.x = 4
+        rec1.y = 7
+        self.assertEqual("[Rectangle] ([4]) 4/7 - 10/2", str(rec1))
+
+class TestRectangle_update_args(unittest.TestCase):
+    ''' Unittests for testing update args of the Rectangle class '''
+
+# should pass
+    def test_update_args_zero(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update()
+        self.assertEqual("[Rectangle] (2) 2/1 - 5/3", str(rec1))
+
+    def test_update_one_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(1)
+        self.assertEqual("[Rectangle] (1) 2/1 - 5/3", str(rec1))
+
+    def test_update_two_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(1, 8)
+        self.assertEqual("[Rectangle] (1) 2/1 - 8/3", str(rec1))
+
+    def test_update_three_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(1, 8, 7)
+        self.assertEqual("[Rectangle] (1) 2/1 - 8/7", str(rec1))
+
+    def test_update_four_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(1, 8, 7, 5)
+        self.assertEqual("[Rectangle] (1) 5/1 - 8/7", str(rec1))
+
+    def test_update_five_arg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(1, 8, 7, 5, 6)
+        self.assertEqual("[Rectangle] (1) 5/6 - 8/7", str(rec1))
+
+    def test_update_more_than_five_args(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(1, 8, 7, 5, 6, 4)
+        self.assertEqual("[Rectangle] (1) 5/6 - 8/7", str(rec1))
+
+    def test_update_args_None(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(None)
+        answer = "[Rectangle] ({}) 2/1 - 5/3".format(rec1.id)
+
+    def test_update_args_None_id_and_other_args(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(None, 7, 5, 6, 4)
+        answer = "[Rectangle] ({}) 6/4 - 7/5".format(rec1.id)
+        self.assertEqual(answer, str(rec1))
+
+    def test_update_args_twice(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(89, 2, 3, 4, 5, 6)
+        rec1.update(6, 5, 4, 3, 2, 89)
+        self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(r))
+
+class TestRectangle_update_kwargs(unittest.TestCase):
+    '''Unittests for update kwargs method '''
+
+
 
 
 if __name__ == "__main__":
