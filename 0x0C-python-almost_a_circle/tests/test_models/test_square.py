@@ -70,7 +70,7 @@ class TestSquare_display_and_str(unittest.TestCase):
 
 # __str__ tests
     def test_str_method_one_arg(self):
-        sq1 = Square(5, 3, 2, 1, 0)
+        sq1 = Square(5, 3, 2, 1)
         with self.assertRaises(TypeError):
             sq1.__str__(5)
 
@@ -80,22 +80,58 @@ class TestSquare_display_and_str(unittest.TestCase):
         answer = "[Square] ({}) 0/0 - 5\n".format(sq1.id)
         self.assertEqual(answer, capture.getvalue())
 
-    def test_str_width_height_x_y(self):
-        rec1 = Rectangle(5, 3, 1, 2, 0)
-        answer = "[Rectangle] ({}) 1/2 - 5/3".format(rec1.id)
-        self.assertEqual(answer, str(rec1))
+    def test_str_size_x(self):
+        sq1 = Square(3, 3)
+        answer = "[Square] ({}) 3/0 - 3".format(sq1.id)
+        self.assertEqual(answer, str(sq1))
 
-    def test_str_width_height_x_y_id(self):
-        rec1 = Rectangle(5, 3, 1, 2, 4)
-        self.assertEqual("[Rectangle] (4) 1/2 - 5/3", str(rec1))
+    def test_str_size_x_y(self):
+        sq1 = Square(3, 3, 5)
+        answer = "[Square] ({}) 3/5 - 3".format(sq1.id)
+        self.assertEqual(answer, str(sq1))
+
+    def test_str_size_x_y_id(self):
+        sq1 = Square(3, 3, 5, 7)
+        answer = "[Square] (7) 3/5 - 3".format(sq1.id)
+        self.assertEqual(answer, str(sq1))
 
     def test_str_changed_attributes(self):
-        rec1 = Rectangle(5, 3, 1, 2, [4])
-        rec1.width = 10
-        rec1.height = 2
-        rec1.x = 4
-        rec1.y = 7
-        self.assertEqual("[Rectangle] ([4]) 4/7 - 10/2", str(rec1))
+        sq1 = Square(5, 3, 1, [4])
+        sq1.width = 10
+        sq1.height = 2
+        sq1.x = 4
+        sq1.y = 7
+        self.assertEqual("[Square] ([4]) 4/7 - 2", str(sq1))
+
+class TestSquare_getters_setters(unittest.TestCase):
+    ''' Defines getter and setter test cases for the square class '''
+    def test_size_private(self):
+        with self.assertRaises(AttributeError):
+            print(Square(1, 2, 3, 4).__size)
+
+    def test_size_getter(self):
+        self.assertEqual(5, Square(5, 2, 4, 6).size)
+
+    def test_size_setter(self):
+        sq1 = Square(1, 2, 3, 4)
+        sq1.size = 8
+        self.assertEqual(8, sq1.size)
+
+    def test_width_getter(self):
+        sq1 = Square(1, 2, 3, 4)
+        sq1.size = 8
+        self.assertEqual(8, sq1.width)
+
+    def test_height_getter(self):
+        sq1 = Square(4, 1, 9, 2)
+        sq1.size = 8
+        self.assertEqual(8, sq1.height)
+
+    def test_x_getter(self):
+        self.assertEqual(0, Square(3).x)
+
+    def test_y_getter(self):
+        self.assertEqual(0, Square(6).y)
 
 
 if __name__ == "__main__":
