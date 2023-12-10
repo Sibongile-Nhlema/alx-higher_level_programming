@@ -49,6 +49,7 @@ class TestSquare_args(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square(2, 4, 3, 5, 4, 3)
 
+
 class TestSquare_display_and_str(unittest.TestCase):
     ''' Defines tests for displaying of the square '''
     @staticmethod
@@ -103,6 +104,7 @@ class TestSquare_display_and_str(unittest.TestCase):
         sq1.y = 7
         self.assertEqual("[Square] ([4]) 4/7 - 2", str(sq1))
 
+
 class TestSquare_getters_setters(unittest.TestCase):
     ''' Defines getter and setter test cases for the square class '''
     def test_size_private(self):
@@ -132,6 +134,7 @@ class TestSquare_getters_setters(unittest.TestCase):
 
     def test_y_getter(self):
         self.assertEqual(0, Square(6).y)
+
 
 class TestSquare_update_args(unittest.TestCase):
     ''' Unittests for testing update args of the Rectangle class '''
@@ -187,6 +190,7 @@ class TestSquare_update_args(unittest.TestCase):
         rec1.update(89, 2, 3, 4, 5, 6)
         rec1.update(6, 5, 4, 3, 2, 89)
         self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
+
 
 class TestRectangle_update_kwargs(unittest.TestCase):
     '''Unittests for update kwargs method '''
