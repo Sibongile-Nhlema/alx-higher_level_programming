@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 ''' Defines the "Base" of all other classes '''
 import json
+import csv
 
 
 class Base:
@@ -86,5 +87,45 @@ class Base:
             with open(filename) as f:
                 list_of_dict = Base.from_json_string(f.read())
                 return list(map(lambda d: cls.create(**d), list_of_dict))
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        ''' writes csv string representation of list_objs to file
+            Args:
+                cls(obj): class
+                list_objects(list): list of instances who inherits Base
+        '''
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, 'w', newline='') as csv_f:
+            if list_objs is None:
+                csv_f.write("[]")
+            else:
+                if cls.__name__ == "Square":
+                    parameter = ["id", "size", "x", "y"]
+                elif cls.__name__ == "Rectangle":
+                    parameter = ["id", "width", "height", "x", "y"]
+                for i in list_objs:
+                    (csv.DictWriter(csv_f,
+                        fieldnames=parameter)).writerow(i.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        ''' return a list of instances
+            Args:
+                cls(obj): object
+        '''
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, newline='') as f:
+                if cls.__name__ == "Square":
+                    parameter = ["id", "size", "x", "y"]
+                elif cls.__name__ == "Rectangle":
+                    parameter = ["id", "width", "height", "x", "y"]
+                list_of_dict = csv.DictReader(f, fieldnames=parameter)
+                list_of_dict = [dict([k, int(v)] for k, v in i.items())
+                                for i in list_of_dict]
+                return [cls.create(**i) for i in list_of_dict]
         except IOError:
             return []
