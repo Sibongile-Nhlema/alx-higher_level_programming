@@ -133,6 +133,106 @@ class TestSquare_getters_setters(unittest.TestCase):
     def test_y_getter(self):
         self.assertEqual(0, Square(6).y)
 
+class TestSquare_update_args(unittest.TestCase):
+    ''' Unittests for testing update args of the Rectangle class '''
+
+    def test_update_args_zero(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update()
+        self.assertEqual("[Square] (2) 2/1 - 5/3", str(sq1))
+
+    def test_update_one_arg(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(1)
+        self.assertEqual("[Square] (1) 2/1 - 5/3", str(sq1))
+
+    def test_update_two_arg(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(1, 8)
+        self.assertEqual("[Square] (1) 2/1 - 8/3", str(sq1))
+
+    def test_update_three_arg(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(1, 8, 7)
+        self.assertEqual("[Square] (1) 2/1 - 8/7", str(sq1))
+
+    def test_update_four_arg(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(1, 8, 7, 5)
+        self.assertEqual("[Square] (1) 5/1 - 8/7", str(sq1))
+
+    def test_update_five_arg(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(1, 8, 7, 5, 6)
+        self.assertEqual("[Square] (1) 5/6 - 8/7", str(sq1))
+
+    def test_update_more_than_five_args(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(1, 8, 7, 5, 6, 4)
+        self.assertEqual("[Square] (1) 5/6 - 8/7", str(sq1))
+
+    def test_update_args_None(self):
+        sq1 = Square(5, 3, 2, 1, 2)
+        sq1.update(None)
+        answer = "[Rectangle] ({}) 2/1 - 5/3".format(sq1.id)
+
+    def test_update_args_None_id_and_other_args(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(None, 7, 5, 6, 4)
+        answer = "[Rectangle] ({}) 6/4 - 7/5".format(rec1.id)
+        self.assertEqual(answer, str(rec1))
+
+    def test_update_args_twice(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(89, 2, 3, 4, 5, 6)
+        rec1.update(6, 5, 4, 3, 2, 89)
+        self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
+
+class TestRectangle_update_kwargs(unittest.TestCase):
+    '''Unittests for update kwargs method '''
+
+    def test_update_one_kwarg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(id=1)
+        self.assertEqual("[Rectangle] (1) 2/1 - 5/3", str(rec1))
+
+    def test_update_two_kwarg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(id=1, width=8)
+        self.assertEqual("[Rectangle] (1) 2/1 - 8/3", str(rec1))
+
+    def test_update_three_kwarg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(height=7, id=1, width=8)
+        self.assertEqual("[Rectangle] (1) 2/1 - 8/7", str(rec1))
+
+    def test_update_four_kwarg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(x=5, id=1, width=8, height=7)
+        self.assertEqual("[Rectangle] (1) 5/1 - 8/7", str(rec1))
+
+    def test_update_five_kwarg(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(y=6, id=1, width=8, x=5, height=7)
+        self.assertEqual("[Rectangle] (1) 5/6 - 8/7", str(rec1))
+
+    def test_update_kwargs_None(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(id=None)
+        answer = "[Rectangle] ({}) 2/1 - 5/3".format(rec1.id)
+
+    def test_update_kwargs_None_id_and_other_kwargs(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(id=None, width=8, x=5, height=7, y=6)
+        answer = "[Rectangle] ({}) 5/6 - 8/7".format(rec1.id)
+        self.assertEqual(answer, str(rec1))
+
+    def test_update_kwargs_twice(self):
+        rec1 = Rectangle(5, 3, 2, 1, 2)
+        rec1.update(id=89, x=1, height=2)
+        rec1.update(id=6, width=5, height=4, x=3, y=2)
+        self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
+
 
 if __name__ == "__main__":
     unittest.main()
