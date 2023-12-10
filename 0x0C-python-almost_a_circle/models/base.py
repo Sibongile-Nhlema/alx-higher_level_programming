@@ -128,3 +128,10 @@ class Base:
                 return [cls.create(**i) for i in list_of_dict]
         except IOError:
             return []
+
+    def draw(list_rectangles, list_squares):
+        ''' opens a window and draws all the Rectangles and Squares
+            Args:
+                list_rectangle(list): list of rectangles
+                list_square(list): list of squares
+        '''
