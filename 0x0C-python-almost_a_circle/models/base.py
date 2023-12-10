@@ -67,7 +67,6 @@ class Base:
             Args:
                 dictionary(dict): double pointer to a dictionary
         '''
-        #dummy instance:
         if dictionary and dictionary != {}:
             if cls.__name__ == "Square":
                 new_obj = cls(3)
@@ -108,7 +107,7 @@ class Base:
                     parameter = ["id", "width", "height", "x", "y"]
                 for i in list_objs:
                     (csv.DictWriter(csv_f,
-                        fieldnames=parameter)).writerow(i.to_dictionary())
+                     fieldnames=parameter)).writerow(i.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):

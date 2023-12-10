@@ -143,8 +143,7 @@ class Rectangle(Base):
         ''' Return thr dictionary representation of a rectangle '''
         return {'id': self.id,
                 'width': self.width,
-                'height':self.height,
+                'height': self.height,
                 'x': self.x,
                 'y': self.y
                 }
-
