@@ -73,8 +73,10 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         ''' Return the dictionary representation of a sqaure '''
-        return {'id': self.id,
+        dictionary = {'id': self.id,
                 'size':self.width,
                 'x': self.x,
                 'y': self.y
                 }
+         sorted_dictionary = dict(sorted(dictionary.items()))
+         return sorted_dictionary
