@@ -137,11 +137,11 @@ class Base:
                 list_square(list): list of squares
         '''
         blue_turtle = turtle.Turtle()
-        blue_turtle.screen.bgcolor("#b7312c")
+        blue_turtle.screen.bgcolor("#27296d")
         blue_turtle.pensize(3)
         blue_turtle.shape("turtle")
 
-        blue_turtle.color("#ffffff")
+        blue_turtle.color("#a393eb")
         for rectangle in list_rectangles:
             blue_turtle.showturtle()
             blue_turtle.up()
@@ -154,7 +154,7 @@ class Base:
                 blue_turtle.left(90)
             blue_turtle.hideturtle()
 
-        blue_turtle.color("#b5e3d8")
+        blue_turtle.color("#a2c11c")
         for square in list_squares:
             blue_turtle.showturtle()
             blue_turtle.up()
@@ -167,4 +167,4 @@ class Base:
                 blue_turtle.left(90)
             blue_turtle.hideturtle()
 
-        blue_turtle.exitonclick()
+        turtle.exitonclick()
