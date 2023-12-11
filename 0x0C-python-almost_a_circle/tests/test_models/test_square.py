@@ -238,5 +238,25 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
 
 
+class TestSquareToDictionary(unittest.TestCase):
+    ''' testing the to_dictionary method '''
+
+    def test_to_dictionary_with_correct_output(self):
+        square = Square(15, 4, 2, 5)
+        expected_output = {'id': 5, 'x': 4, 'size': 15, 'y': 2}
+        self.assertDictEqual(expected_output, square.to_dictionary())
+
+    def test_to_dictionary_with_no_object_changes(self):
+        square1 = Square(15, 3, 2, 7)
+        square2 = Square(5, 3, 15)
+        square2.update(**square1.to_dictionary())
+        self.assertNotEqual(square1, square2)
+
+    def test_to_dictionary_with_invalid_argument(self):
+        square = Square(10, 10, 10, 10)
+        with self.assertRaises(TypeError):
+            square.to_dictionary(1)
+
+
 if __name__ == "__main__":
     unittest.main()
