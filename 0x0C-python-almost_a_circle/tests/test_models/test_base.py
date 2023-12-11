@@ -148,7 +148,8 @@ class TestBase_to_json_string_rectangle(unittest.TestCase):
     ''' Test for to_json_string '''
     def test_to_json_string_type_rectangle(self):
         rec1 = Rectangle(3, 5, 7, 9, 11)
-        self.assertEqual(str, type(Base.to_json_string([rec1.to_dictionary()])))
+        self.assertEqual(str,
+                         type(Base.to_json_string([rec1.to_dictionary()])))
 
     def test_to_json_string_rectangle_one_dict(self):
         r = Rectangle(10, 7, 2, 8, 6)
