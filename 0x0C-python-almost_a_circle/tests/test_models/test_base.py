@@ -3,7 +3,9 @@
 
 Unittest classes:
     TestBase_init
-
+    TestBase_to_json_string
+    TestBase_to_json_string_rectangle
+    TestBase_to_json_string_square
 '''
 import os
 import unittest
@@ -132,7 +134,7 @@ class TestBase_to_json_string(unittest.TestCase):
             Base.to_json_string()
 
     def test_to_json_string_none(self):
-        self.assertEqual("[]", Base.to_json_string(None))
+        self.assertEqual("null", Base.to_json_string(None))
 
     def test_to_json_string_empty(self):
         self.assertEqual("[]", Base.to_json_string([]))
