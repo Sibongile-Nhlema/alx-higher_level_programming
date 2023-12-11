@@ -2,7 +2,28 @@
 ''' Module for Rectangle model Unittests
 
 Unittest classes:
-    TestRectangle_init
+    TestRectangle_args
+    TestRectangle_private_args
+    TestRectangle_setters
+    TestRectangle_getters
+    TestRectangle_type_float
+    TestRectangle_type_bool
+    TestRectangle_type_str
+    TestRectangle_type_None
+    TestRectangle_type_list
+    TestRectangle_type_dict
+    TestRectangle_type_set
+    TestRectangle_type_frozenset
+    TestRectangle_type_tuple
+    TestRectangle_type_range
+    TestRectangle_type_bytearray
+    TestRectangle_type_complex
+    TestRectangle_type_memoryview
+    TestRectangle_area
+    TestRectangle_display_and_str
+    TestRectangle_update_args
+    TestRectangle_update_kwargs
+    TestRectangle_to_dictionary
 '''
 import io
 import sys
@@ -564,6 +585,20 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         rec1.update(id=89, x=1, height=2)
         rec1.update(id=6, width=5, height=4, x=3, y=2)
         self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
+
+
+class TestRectangle_to_dictionary(unittest.TestCase):
+    ''' testing to_dictionary method '''
+    def test_to_dictionary_output(self):
+        rec = Rectangle(5, 3, 2, 8, 10)
+        correct = {'x': 2, 'y': 8, 'id': 10, 'height': 3, 'width': 5}
+        self.assertDictEqual(correct, rec.to_dictionary())
+
+    def test_to_dictionary_no_object_changes(self):
+        rec1 = Rectangle(5, 3, 2, 8, 10)
+        rec2 = Rectangle(8, 2, 5, 3, 2)
+        rec2.update(**rec1.to_dictionary())
+        self.assertNotEqual(rec1, rec2)
 
 
 if __name__ == "__main__":

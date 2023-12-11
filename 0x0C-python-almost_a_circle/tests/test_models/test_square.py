@@ -3,6 +3,25 @@
 
 Unittest classes:
     TestRectangle_args
+    TestSquare_type_float
+    TestSquare_type_bool
+    TestSquare_type_str
+    TestSquare_type_None
+    TestSquare_type_list
+    TestSquare_type_dict
+    TestSquare_type_set
+    TestSquare_type_frozenset
+    TestSquare_type_tuple
+    TestSquare_type_range
+    TestSquare_type_bytearray
+    TestSquare_type_complex
+    TestSquare_type_memoryview
+    TestSquare_area
+    TestSquare_display_and_str
+    TestSquare_getters_setters
+    TestSquare_update_args
+    TestRectangle_update_kwargs
+    TestSquareToDictionary
 '''
 import io
 import sys
@@ -47,7 +66,123 @@ class TestSquare_args(unittest.TestCase):
 
     def test_too_many_args(self):
         with self.assertRaises(TypeError):
-            Square(2, 4, 3, 5, 4, 3)
+            Square(2, 6, 3, 3, 4, 3)
+
+
+class TestSquare_type_float(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_float_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(4.6)
+
+
+class TestSquare_type_bool(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_bool_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(False)
+
+
+class TestSquare_type_str(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_str_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square("bye")
+
+
+class TestSquare_type_None(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_None_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(None)
+
+
+class TestSquare_type_list(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_list_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(["apple", "bandjo", "cherry"])
+
+
+class TestSquare_type_dict(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_dict_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square({"name": "Johnny", "age": 6})
+
+
+class TestSquare_type_set(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_set_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square({"apple", "banana", "edges"})
+
+
+class TestSquare_type_frozenset(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_frozenset_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(frozenset({"apple", "blue", "cherry"}))
+
+
+class TestSquare_type_tuple(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_tuple_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(("red", "orange", "yellow"))
+
+
+class TestSquare_type_range(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_range_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(range(8))
+
+
+class TestSquare_type_bytearray(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_bytearray_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(bytearray(5))
+
+
+class TestSquare_type_complex(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_complex_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(1j)
+
+
+class TestSquare_type_memoryview(unittest.TestCase):
+    ''' Defines wrong type tests for side '''
+    def test_memoryview_side(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(memoryview(bytes(5)))
+
+
+class TestSquare_area(unittest.TestCase):
+    ''' Defines tests for area of the square '''
+    def test_normal_area(self):
+        sq1 = Square(3)
+        self.assertEqual(9, sq1.area())
+
+    def test_large_area(self):
+        sq1 = Square(999999999)
+        self.assertEqual((999999999 ** 2), sq1.area())
+
+    def test_small_area(self):
+        sq1 = Square(2)
+        self.assertEqual(4, sq1.area())
+
+    def test_area_one_arg(self):
+        sq1 = Square(5)
+        with self.assertRaises(TypeError):
+            sq1.area(1)
+
+    def test_area_changed_side(self):
+        sq1 = Square(3)
+        sq1.side = 9
+        self.assertEqual(9, sq1.area())
 
 
 class TestSquare_display_and_str(unittest.TestCase):
@@ -236,6 +371,26 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         rec1.update(id=89, x=1, height=2)
         rec1.update(id=6, width=5, height=4, x=3, y=2)
         self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
+
+
+class TestSquareToDictionary(unittest.TestCase):
+    ''' testing the to_dictionary method '''
+
+    def test_to_dictionary_with_correct_output(self):
+        square = Square(15, 4, 2, 5)
+        expected_output = {'id': 5, 'x': 4, 'size': 15, 'y': 2}
+        self.assertDictEqual(expected_output, square.to_dictionary())
+
+    def test_to_dictionary_with_no_object_changes(self):
+        square1 = Square(15, 3, 2, 7)
+        square2 = Square(5, 3, 15)
+        square2.update(**square1.to_dictionary())
+        self.assertNotEqual(square1, square2)
+
+    def test_to_dictionary_with_invalid_argument(self):
+        square = Square(10, 10, 10, 10)
+        with self.assertRaises(TypeError):
+            square.to_dictionary(1)
 
 
 if __name__ == "__main__":

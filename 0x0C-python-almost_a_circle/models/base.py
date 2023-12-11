@@ -103,12 +103,12 @@ class Base:
                 csv_f.write("[]")
             else:
                 if cls.__name__ == "Square":
-                    parameter = ["id", "size", "x", "y"]
+                    fieldnames = ["id", "size", "x", "y"]
                 elif cls.__name__ == "Rectangle":
-                    parameter = ["id", "width", "height", "x", "y"]
+                    fieldnames = ["id", "width", "height", "x", "y"]
                 for i in list_objs:
                     (csv.DictWriter(csv_f,
-                     fieldnames=parameter)).writerow(i.to_dictionary())
+                     fieldnames=fieldnames)).writerow(i.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
