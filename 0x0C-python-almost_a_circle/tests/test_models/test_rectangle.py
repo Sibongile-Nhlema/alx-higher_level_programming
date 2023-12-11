@@ -566,5 +566,19 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         self.assertEqual("[Rectangle] (6) 3/2 - 5/4", str(rec1))
 
 
+class TestRectangle_to_dictionary(unittest.TestCase):
+    ''' testing to_dictionary method '''
+    def test_to_dictionary_output(self):
+        rec = Rectangle(5, 3, 2, 8, 10)
+        correct = {'x': 2, 'y': 8, 'id': 10, 'height': 3, 'width': 5}
+        self.assertDictEqual(correct, rec.to_dictionary())
+
+    def test_to_dictionary_no_object_changes(self):
+        rec1 = Rectangle(5, 3, 2, 8, 10)
+        rec2 = Rectangle(8, 2, 5, 3, 2)
+        rec2.update(**rec1.to_dictionary())
+        self.assertNotEqual(rec1, rec2)
+
+
 if __name__ == "__main__":
     unittest.main()
