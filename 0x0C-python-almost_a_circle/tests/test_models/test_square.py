@@ -3,7 +3,25 @@
 
 Unittest classes:
     TestRectangle_args
-
+    TestSquare_type_float
+    TestSquare_type_bool
+    TestSquare_type_str
+    TestSquare_type_None
+    TestSquare_type_list
+    TestSquare_type_dict
+    TestSquare_type_set
+    TestSquare_type_frozenset
+    TestSquare_type_tuple
+    TestSquare_type_range
+    TestSquare_type_bytearray
+    TestSquare_type_complex
+    TestSquare_type_memoryview
+    TestSquare_area
+    TestSquare_display_and_str
+    TestSquare_getters_setters
+    TestSquare_update_args
+    TestRectangle_update_kwargs
+    TestSquareToDictionary
 '''
 import io
 import sys

@@ -2,7 +2,28 @@
 ''' Module for Rectangle model Unittests
 
 Unittest classes:
-    TestRectangle_init
+    TestRectangle_args
+    TestRectangle_private_args
+    TestRectangle_setters
+    TestRectangle_getters
+    TestRectangle_type_float
+    TestRectangle_type_bool
+    TestRectangle_type_str
+    TestRectangle_type_None
+    TestRectangle_type_list
+    TestRectangle_type_dict
+    TestRectangle_type_set
+    TestRectangle_type_frozenset
+    TestRectangle_type_tuple
+    TestRectangle_type_range
+    TestRectangle_type_bytearray
+    TestRectangle_type_complex
+    TestRectangle_type_memoryview
+    TestRectangle_area
+    TestRectangle_display_and_str
+    TestRectangle_update_args
+    TestRectangle_update_kwargs
+    TestRectangle_to_dictionary
 '''
 import io
 import sys
