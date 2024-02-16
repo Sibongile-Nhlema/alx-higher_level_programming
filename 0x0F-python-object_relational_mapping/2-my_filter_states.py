@@ -10,7 +10,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     '''Execute the SQL query to retrive the states that match the name gven'''
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY %s", (sys.argv[4],))
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'".format(sys.argv[4]))
     rows = cur.fetchall()
 
     '''Show results'''
