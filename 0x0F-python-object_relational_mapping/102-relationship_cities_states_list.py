@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-prints State object with name 
+prints State object with name
 passed as argument from db
 '''
 import sys
