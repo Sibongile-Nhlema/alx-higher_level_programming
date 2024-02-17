@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Prints the first State object from the database hbtn_0e_6_usa """
 import sys
+from model_city import City
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
