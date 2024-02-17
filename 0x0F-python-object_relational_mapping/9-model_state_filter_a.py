@@ -14,6 +14,7 @@ if __name__ == "__main__":
     eng = create_engine('mysql+mysqldb://{user}:{pwd}@localhost:3306/{db_name}'
                         .format(user=db_user, pwd=db_pwd, db_name=db_name))
     Base.metadata.create_all(eng)
+    Session = sessionmaker(bind=eng)
     session = Session()
 
     search_letter = 'a'
