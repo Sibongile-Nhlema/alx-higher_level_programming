@@ -12,7 +12,8 @@ if __name__ == "__main__":
     db_password = sys.argv[2]
     db_name = sys.argv[3]
 
-    db_connection_str = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(db_user, db_password, db_name)
+    db_connection_str = 'mysql+mysqldb:// \
+            {}:{}@localhost:3306/{}'.format(db_user, db_password, db_name)
 
     engine = create_engine(db_connection_str)
     Base.metadata.create_all(engine)
