@@ -10,7 +10,7 @@ if __name__ == "__main__":
     db_user = sys.argv[1]
     db_pwd = sys.argv[2]
     db_name = sys.argv[3]
-    
+
     eng = create_engine('mysql+mysqldb://{user}:{pwd}@localhost:3306/{db_name}'
                         .format(user=db_user, pwd=db_pwd, db_name=db_name))
     Base.metadata.create_all(eng)
