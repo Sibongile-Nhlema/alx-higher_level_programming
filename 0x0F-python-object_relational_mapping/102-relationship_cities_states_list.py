@@ -4,11 +4,11 @@ prints State object with name
 passed as argument from db
 '''
 import sys
-from relationship_state import Base, State
-from relationship_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import relationship
+from relationship_state import Base, State
+from relationship_city import City
 
 
 if __name__ == "__main__":
@@ -22,8 +22,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=eng)
     session = Session()
 
-    try:
-        for state in session.query(State).order_by(State.id):
-            for city in state.cities:
-                print(city.id, city.name, sep=": ", end="")
-                print(" -> " + state.name)
+    for ins in session.query(State).order_by(State.id):
+        for city_ins in ins.cities:
+            print(city_ins.id, city_ins.name, sep=": ", end="")
+            print(" -> " + ins.name)
