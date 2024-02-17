@@ -17,11 +17,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=eng)
     session = Session()
 
-    search_letter = 'a'
-    query_result = session.query(State).filter(
-        State.name.like('%{}%'.format(search_letter))).first()
-
-    if query_result:
-        print(query_result.id, query_result.name, sep=": ")
-    else:
-        print("No State object found with the specified criteria.")
+    for instance in session.query(State).filter(State.name.like('%a%')):
+        print(instance.id, instance.name, sep=": ")
