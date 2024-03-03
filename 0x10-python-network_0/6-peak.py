@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 '''Module to find the peak in a list of unordered integers'''
 
+
 def find_peak(list_of_integers):
-    '''Find the peak in a list of unordered integers using binary search algorithm.
+    '''Find the peak in a list of unordered integers
+    using binary search algorithm.
 
     Args:
         list_of_integers (list): A list of unordered integers.
