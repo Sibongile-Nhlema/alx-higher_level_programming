@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+	''' Function finds the peak in a list of unordered integers'''
 
 def find_peak(list_of_integers):
 	''' Function finds the peak in a list of unordered integers '''
