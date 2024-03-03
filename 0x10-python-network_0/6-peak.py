@@ -14,6 +14,9 @@ def find_peak(list_of_integers):
         >>> find_peak([1, 3, 20, 4, 1, 0])
         20
     '''
+    if not list_of_integers:  # Check if the list is empty
+        return None
+
     left = 0
     right = len(list_of_integers) - 1
 
