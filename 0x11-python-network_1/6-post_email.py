@@ -23,4 +23,5 @@ if __name__ == "__main__":
     if response.status_code == 200:
         print(response.text)
     else:
-        print(f"Failed to send POST request. Status code: {response.status_code}")
+        print(f"Failed to send POST request.")
+        print(f"Status code: {response.status_code}")
