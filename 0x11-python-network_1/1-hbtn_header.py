@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''takes in url, sends request and displays the value of X-Request_Id variable in the header'''
 
-
 import urllib.request
 import sys
 
