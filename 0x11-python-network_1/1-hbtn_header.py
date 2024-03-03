@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Script that takes in a url, sends request it and displays the value of X-Request_Id variable in the header'''
+'''takes in url, sends request and displays the value of X-Request_Id variable in the header'''
 
 
 import urllib.request
