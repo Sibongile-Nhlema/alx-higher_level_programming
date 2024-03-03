@@ -12,10 +12,8 @@ if len(sys.argv) < 2:
 
 url = sys.argv[1]
 
-try:
-    with urllib.request.urlopen(url) as response:
-        html = response.read()
-        x_request_id = response.getheader('X-Request-Id')
-        print(x_request_id)
-except Exception as e:
-    print(f"Error occurred: {e}")
+with urllib.request.urlopen(url) as response:
+    '''something here for the sake of testing'''
+    html = response.read()
+    x_request_id = response.getheader('X-Request-Id')
+    print(x_request_id)
