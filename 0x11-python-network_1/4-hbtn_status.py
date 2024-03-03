@@ -12,4 +12,3 @@ content = response.text
 print("Body response:")
 print("\t- type:", type(content))
 print("\t- content:", content)
-
