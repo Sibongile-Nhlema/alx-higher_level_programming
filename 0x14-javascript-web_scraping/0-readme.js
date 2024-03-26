@@ -1,6 +1,12 @@
 #!/usr/bin/node
 
-/*take agruments */
-/*store arugemnts in a variable*/
-/*read from the argument in utf-8*/
-/*handle errors if not possible*/
+const fs = require('fs');
+const filePath = process.argv[2];
+
+fs.readFile(filePath, 'utf-8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data);
+});
