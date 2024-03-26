@@ -14,7 +14,6 @@ function fetchCharacters (movieId) {
     } else {
       const movieData = JSON.parse(body);
       const charactersUrls = movieData.characters;
-      let counter = 0;
 
       charactersUrls.forEach(characterUrl => {
         request(characterUrl, function (error, response, body) {
@@ -25,7 +24,6 @@ function fetchCharacters (movieId) {
           } else {
             const characterData = JSON.parse(body);
             console.log(characterData.name);
-            counter++;
           }
         });
       });
