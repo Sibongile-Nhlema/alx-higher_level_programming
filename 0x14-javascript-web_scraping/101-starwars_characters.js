@@ -13,20 +13,26 @@ function fetchCharacters (movieId) {
       console.error('Invalid status code:', response.statusCode);
     } else {
       const movieData = JSON.parse(body);
-      const charactersUrls = movieData.characters;
-
-      charactersUrls.forEach(characterUrl => {
-        request(characterUrl, function (error, response, body) {
-          if (error) {
-            console.error('Error:', error);
-          } else if (response && response.statusCode !== 200) {
-            console.error('Invalid status code:', response.statusCode);
-          } else {
-            const characterData = JSON.parse(body);
-            console.log(characterData.name);
-          }
+      const characterPromises = movieData.characters.map((characterUrl) => {
+        return new Promise((resolve, reject) => {
+          request(characterUrl, function (charError, charResponse, charBody) {
+            if (!charError && charResponse.statusCode === 200) {
+              const characterData = JSON.parse(charBody);
+              resolve(characterData.name);
+            } else {
+              reject(new Error(`Error fetching character data: ${charError}`));
+            }
+          });
         });
       });
+
+      Promise.all(characterPromises)
+        .then((characterNames) => {
+          console.log(characterNames.join('\n'));
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
     }
   });
 }
