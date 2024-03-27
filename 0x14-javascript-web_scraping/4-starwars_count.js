@@ -10,7 +10,7 @@ function totalCharacterPresenceInMovie (apiUrl) {
     if (!error && response.statusCode === 200) {
       const filmsData = JSON.parse(body).results;
       filmsData.forEach(film => {
-        if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
+        if (film.characters.find(character => character.endsWith(`/${characterId}/`))) {
           count++;
         }
       });
