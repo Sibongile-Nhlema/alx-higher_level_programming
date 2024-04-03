@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const headerElement = document.querySelector('header');
+    // Select the header element
+    const headerElement = document.getElementsByTagName('header')[0];
 
+    // Update the text color to red
     headerElement.style.color = '#FF0000';
 });
+
